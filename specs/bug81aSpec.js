@@ -7,16 +7,6 @@ describe('bug 8.1.a', function() {
     test(input, output, {}, done);
   });
   describe('does nothing', function() {
-    it('when using only first value', function(done) {
-      var input = 'a{flex: 0}';
-      var output = 'a{flex: 0 1}';
-      test(input, output, {}, done);
-    });
-    it('when using only first and second values', function(done) {
-      var input = 'a{flex: 0 0}';
-      var output = 'a{flex: 0 0}';
-      test(input, output, {}, done);
-    });
     it('when not using calc', function(done) {
       var css = 'a{flex: 0 0 1px}';
       test(css, css, {}, done);
