@@ -1,6 +1,6 @@
 {
-    "name": "postcss-flexbugs-fixes",
-    "version": "4.2.0",
+    "name": "@spaced-out/postcss-flexbugs-strict",
+    "version": "1.0.0",
     "description": "PostCSS plugin This project tries to fix all of flexbug's issues",
     "keywords": [
         "postcss",
