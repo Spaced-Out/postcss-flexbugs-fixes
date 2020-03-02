@@ -36,7 +36,9 @@ module.exports = postcss.plugin('postcss-flexbugs-fixes', function() {
           throw d.error(`Invalid shorthand \`flex-grow\` value: ${flexGrow}. Value must be a unitless number.`, {word: flexGrow});
         }
         if (!regex.exec(flexShrink)) {
-          throw d.error(`Invalid shorthand \`flex-shrink\` value: ${flexShrink}. Value must be a uintless number.`, {word: flexShrink});
+          throw d.error(`Invalid shorthand \`flex-shrink\` value: ${flexShrink}. Value must be a unitless number.`, {word: flexShrink,
+            index: d.prop.length + flexGrow.length + ':  '.length,
+          });
         }
 
         checkFlexBasis(d, flexBasis);
@@ -52,6 +54,8 @@ module.exports = postcss.plugin('postcss-flexbugs-fixes', function() {
 
 function checkFlexBasis(d, flexBasis) {
   if (!flexBasis || ['0', '0px'].includes(flexBasis)) {
-    throw d.error('Invalid flex-basis value. Please specify `0%` or `1px`.', {word: flexBasis});
+    throw d.error('Invalid flex-basis value. Please specify `0%` or `1px`.', {word: flexBasis,
+      index: d.toString().length - flexBasis.length,
+    });
   }
 }
